@@ -1,0 +1,25 @@
+<!-- index.html -->
+<h1>書店</h1>
+
+<h2>書籍列表</h2>
+<ul>
+{% for book in books %}
+  <li>{{ book.title }} - {{ book.author }} - {{ book.price }}</li>
+{% endfor %}
+</ul>
+
+<h2>客戶列表</h2>
+<ul>
+{% for customer in customers %}
+  <li>{{ customer.name }} - {{ customer.email }} - {{ customer.address }}</li>
+{% endfor %}
+</ul>
+
+<h2>訂單列表</h2>
+<ul>
+{% for order in orders %}
+  <li>
+    {{ order.customer.name }} - {{ order.book.title }} - {{ order.quantity }} - {{ order.date }}
+  </li>
+{% endfor %}
+</ul>

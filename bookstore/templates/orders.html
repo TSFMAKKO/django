@@ -1,0 +1,35 @@
+<!-- search_customer_orders.html -->
+<h1>查詢顧客訂單</h1>
+
+<form method="POST" action="{% url 'orders' %}">
+    {% csrf_token %}
+    <label>顧客姓名:</label>
+    <input type="text" name="customer_name" />
+    <input type="submit" value="查詢" />
+</form>
+
+{% if orders %}
+    <h2>查詢結果</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>訂單編號</th>
+                <th>書籍標題</th>
+                <th>數量</th>
+                <th>訂單日期</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+                <tr>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.book.title }}</td>
+                    <td>{{ order.quantity }}</td>
+                    <td>{{ order.date }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+<div>找不到資料</div>
+{% endif %}
