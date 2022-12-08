@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-edizq%#5alvf&m8z$5z%1u8bs9*u20-=7fum4-ce3jy9872b89
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['198.211.99.20', 'localhost', '127.0.0.1','8547-2403-c300-cd07-cda6-9d53-e716-d8d2-3017.ngrok.io']
 
 
 # Application definition
@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bookstore'
+    'bookstore',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -48,6 +49,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
 ROOT_URLCONF = 'bootstore3.urls'
@@ -122,3 +125,15 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ALLOWED_ORIGINS = [
+    # "https://example.com",
+    # "https://8547-2403-c300-cd07-cda6-9d53-e716-d8d2-3017.ngrok.io/bookstore/orders",
+    # "https://8547-2403-c300-cd07-cda6-9d53-e716-d8d2-3017.ngrok.io",
+    # "http://localhost:8000",
+    # "http://127.0.0.1:8000",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://8547-2403-c300-cd07-cda6-9d53-e716-d8d2-3017.ngrok.io",
+]
