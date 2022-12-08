@@ -41,5 +41,5 @@ def search_customer_orders(request):
     # print("orders:",orders)
     # 顯示查詢結果
     # orders=[{"id":"001"},{"id":"002"},{"id":"003"}]
-    return render(request, "orders.html", {'orders': orders})
+    return render(request, "orders.html", {'orders': orders,"customer_name": customer_name})
     # return render(request, "search_customer_orders.html")

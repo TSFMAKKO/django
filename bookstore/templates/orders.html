@@ -9,7 +9,7 @@
 </form>
 
 {% if orders %}
-    <h2>查詢結果</h2>
+    <h2>顧客:{{ customer_name }}</h2>
     <table>
         <thead>
             <tr>
@@ -31,5 +31,5 @@
         </tbody>
     </table>
 {% else %}
-<div>找不到資料</div>
+<div>{{ customer_name }}找不到資料</div>
 {% endif %}
